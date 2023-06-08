@@ -55,7 +55,7 @@ export const NFTProvider = ({ children }) => {
   };
 
   const uploadToIPFS = async (file) => {
-    const subdomain = 'https://abhijit-crypto.infura-ipfs.io';
+    const subdomain = 'https://abhijit-cryptoo.infura-ipfs.io';
     try {
       const added = await client.add({ content: file });
       const url = `${subdomain}/ipfs/${added.path}`;
@@ -72,7 +72,7 @@ export const NFTProvider = ({ children }) => {
 
     const data = JSON.stringify({ name, description, image: fileUrl });
 
-    const subdomain = 'https://abhijit-crypto.infura-ipfs.io';
+    const subdomain = 'https://abhijit-cryptoo.infura-ipfs.io';
     try {
       const added = await client.add(data);
 
@@ -108,7 +108,7 @@ export const NFTProvider = ({ children }) => {
   const fetchNFTs = async () => {
     setIsLoadingNFT(false);
 
-    const provider = new ethers.providers.JsonRpcProvider();
+    const provider = new ethers.providers.JsonRpcProvider('https://rpc.sepolia.org');
     const contract = fetchContract(provider);
 
     const data = await contract.fetchMarketItems();
